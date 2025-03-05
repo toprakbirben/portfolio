@@ -25,7 +25,6 @@ html, body {
   font-family: Proxima Nova, Roboto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
   background-image: url('/turbulance.svg');
   margin: 0;
   padding: 0;

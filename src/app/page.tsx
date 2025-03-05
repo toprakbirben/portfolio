@@ -1,41 +1,16 @@
 'use client'
 import styles from './Home.module.css';
-import React, { useRef, useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 import GridLayout, { Layout } from "react-grid-layout";
-import Lenis from '@studio-freight/lenis';
 import { motion } from "motion/react"
 import { AnimatePresence } from "motion/react"
 
 
 export default function Home() {
-  const lenis = useRef(null);
-
-  useEffect(() => {
-    // Initialize Lenis
-    lenis.current = new Lenis({
-      duration: 0.6, // Control the duration of the scroll
-      easing: (t) => 1 - Math.pow(1 - t, 3), // Cubic easing for smooth stop
-      smooth: true,
-      smoothTouch: true, // Enable smooth scrolling on touch devices
-    });
-
-    const animate = (time) => {
-      lenis.current.raf(time);
-      requestAnimationFrame(animate);
-    };
-
-    requestAnimationFrame(animate);
-
-    // Cleanup on unmount
-    return () => {
-      lenis.current.destroy();
-    };
-  }, []);
-
   return (
-    <div className={styles.container} data-scroll data-scroll-speed="0.9">
+    <div className={styles.container}>
       <div className={styles.main_content}> 
         {navBar()}
         {torpak()}
