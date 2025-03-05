@@ -324,14 +324,12 @@ function pageFooter() {
             <p>toprakbirben</p>
           </a>
         </div>
-
         <div className={styles.footer_item}>
           <a href="https://github.com/toprakbir"> 
             <img src="/github.png" alt="github image"></img>  
             <p>toprakbir</p>
           </a>
         </div>
-
       </div>
     </footer>
   );
