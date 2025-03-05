@@ -34,11 +34,6 @@ export default function Home() {
     };
   }, []);
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    lenis.current.scrollTo(element);
-  };
-
   return (
     <div className={styles.container} data-scroll data-scroll-speed="0.9">
       <div className={styles.main_content}> 
