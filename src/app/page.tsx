@@ -1,44 +1,46 @@
 'use client'
+
 import styles from './Home.module.css';
 import React, {useState } from 'react'
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
-import GridLayout, { Layout } from "react-grid-layout";
+import GridLayout from "react-grid-layout";
 import { motion } from "motion/react"
 import { AnimatePresence } from "motion/react"
+import Image from "next/image"
 
 
 export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.main_content}> 
-        {navBar()}
-        {torpak()}
-        {about()}
+        {NavBar()}
+        {Torpak()}
+        {About()}
       </div>
-        {transition()}
+        {Transition()}
       <div className={styles.main_content}>
-        {project()}      
+        {Project()}      
       </div>
       <div className={styles.end_content}> 
-        {contact()}
-        {pageFooter()}
+        {Contact()}
+        {PageFooter()}
       </div>
     </div>
   );
 }
 
-function transition() {
+function Transition() {
   return (
   <div className={styles.transition}>
-    <h1> "but although all our knowledge begins with experience, it does not follow that it arises from experience." <br/> Immanuel Kant </h1>
+    <h1> &apos;but although all our knowledge begins with experience, it does not follow that it arises from experience.&apos; <br/> Immanuel Kant </h1>
   </div>
   );
 
 }
 
 
-function navBar() {
+function NavBar() {
   return (
     <nav className={styles.navbar}>
       <ul>
@@ -54,7 +56,7 @@ function navBar() {
 }
 
 
-function torpak() {
+function Torpak() {
   return (
     <div className={styles.start} id="toprak">
       <div className={`${styles.grid_item} ${styles.svgContainer}`}>
@@ -65,15 +67,16 @@ function torpak() {
             </clipPath>
           </defs>          
         </svg>
-        <img src="/torpak.png" alt="torpak" className={styles.image} />
+        <Image src="/torpak.png" alt="torpak" className={styles.image} />
+        
       </div>
       <h1 className={styles.grid_item}><strong>2025</strong> graduate of Vrije Universiteit <strong>BSc Computer Science</strong></h1>
-      <p className={styles.grid_item} >Here you can check out what I'm working on!</p>
+      <p className={styles.grid_item} >Here you can check out what I&apos;m working on!</p>
     </div>
   );
 }
 
-function about() {
+function About() {
   return (
       <div id="about" className={styles.grid_sectors}>
         <SectionTitle text_info="Intro"/>
@@ -91,16 +94,7 @@ function about() {
   );
 }
 
-function project() {
-  const [layout, setLayout] = useState<Layout[]>([
-    { i: "a", x: 1, y: 3, w: 3, h: 3, minH: 2},
-    { i: "b", x: 3, y: 3, w: 3, h: 3}
-  ]);
-  
-  const handleLayoutChange = (newLayout: Layout[]) => {
-    console.log("New Layout:", newLayout);
-    setLayout(newLayout);
-  };
+function Project() {
   return (
     <div className={styles.project_sector}>
       <div id="project" className={styles.grid_sectors}>
@@ -109,11 +103,9 @@ function project() {
         <div className={styles.grid_item}>
           <GridLayout
             className="layout"
-            layout={layout}
             cols={12}
             rowHeight={30}
             width={1200}
-            onLayoutChange={handleLayoutChange}
           >
             <div key="a" className={styles.proj_item}> 
               <GridItem 
@@ -136,7 +128,7 @@ function project() {
   );
 }
 
-function contact() {
+function Contact() {
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
 
   const toggleAccordion = (accordion: string) => {
@@ -175,7 +167,7 @@ function contact() {
                   >
                     <div className={styles.group}> 
                       <h1> Vrije Universiteit Amsterdam - <i>Class of 2025</i></h1>
-                      <p> Bachelor's in Computer Science</p>
+                      <p> Bachelor&apos;s in Computer Science</p>
                     </div>
                     <h1> Hisar School - <i> Class of 2022</i></h1>
                   </motion.div>
@@ -209,7 +201,7 @@ function contact() {
                     <div> 
                       <h1>Robotics</h1>
                       <ul> 
-                        <li>Took responsibility of team's leadership and mentorship during the 19/20 & 21/22 season.</li>
+                        <li>Took responsibility of team&apos;s leadership and mentorship during the 19/20 & 21/22 season.</li>
                         <li>Delved into various sub-sections such as electronics, programming, manufacturing and designing of the robot</li>
                         <li>Nominated in various awards and won Industrial Safety in 2019</li>
                       </ul>
@@ -259,7 +251,7 @@ function contact() {
 
 function Divider() {
   return (
-    <img src="/divider.svg" alt="divider" className={`${styles.grid_item} ${styles.divider}`} />
+    <Image  src="/divider.svg" alt="divider" className={`${styles.grid_item} ${styles.divider}`} />
   );
 }
 
@@ -283,20 +275,20 @@ function SectionTitle({text_info}: {text_info: string}) {
   );
 }
 
-function pageFooter() {
+function PageFooter() {
   return (
     <footer className={styles.footer}>
       <div className={styles.footer_container}>
 
         <div className={styles.footer_item} >
           <a href="https://linkedin.com/in/toprakbirben"> 
-            <img src="/linkedin.webp" alt="linkedIn image"></img>          
+          <Image src="/linkedin.webp" alt="linkedIn image"/>   
             <p>toprakbirben</p>
           </a>
         </div>
         <div className={styles.footer_item}>
           <a href="https://github.com/toprakbir"> 
-            <img src="/github.png" alt="github image"></img>  
+            <Image  src="/github.png" alt="github image"/>
             <p>toprakbir</p>
           </a>
         </div>
