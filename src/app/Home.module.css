@@ -1,0 +1,285 @@
+
+.svgContainer {
+  width: 300px; 
+  height: 400px; 
+  transform: scale(1.2);
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+  z-index: 1;
+  clip-path: url(#clipPath); 
+}
+
+.navbar {
+  width: 100%;
+  background-color: transparent; 
+  position: sticky;
+}
+
+
+.navbar .rhs {
+  float: right;
+}
+
+.navbar li {
+  font-size: 32px;
+  display: inline;
+  text-align: right;
+}
+
+.navbar li:not(:last-child) {
+  margin-right: 32px; 
+}
+
+
+.start {
+  margin: 160px 0px 160px 0px;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: auto auto auto;
+  gap: 12px;
+}
+
+.start .grid_item {
+  align-self: center;
+  justify-self: center;
+}
+
+.start p {
+  font-size: 32px;
+}
+
+.start h1 {
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  width: 720px;
+  justify-self: center;
+  text-align: center;
+  color: #252218;
+}
+
+.start h1 strong {
+  color: #E43D12;
+}
+
+
+.main_content {
+  margin: 12px 61px;
+}
+
+/* PROJECTS SECTORS */
+
+
+.project_sector {
+  border: 0px;
+}
+
+.proj_item {
+  border-radius: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #E43D12;
+}
+
+.proj_item .proj_box {
+  text-align: left;
+  justify-self: left;
+  letter-spacing: 2px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+
+.proj_item .proj_box p {
+  line-height: 150%;
+  font-size: 20px;
+  color: #E43D12;
+}
+
+.proj_item .proj_box .proj_head {
+  text-align: center;
+  justify-self: center;
+  color: #E43D12;
+  font-size: 28px;
+}
+
+.proj_item .proj_box footer {
+  justify-self: center;
+  color: #E43D12;
+}
+
+
+/* SECTORS */
+
+.grid_sectors {
+  display: grid;
+  grid-template-columns: 0.15fr 0.1fr 1fr;
+  grid-auto-rows: auto auto;
+  margin: 160px 0px 160px 0px;
+}
+
+.grid_sectors .grid_item {
+  align-self: start;
+}
+
+.grid_sectors .grid_item h1 {
+  font-size: 48px;
+  text-align: right;
+  padding-right: 20px;
+  font-weight: bold;
+  color:#E43D12;
+}
+
+.grid_sectors .grid_item:first-child {
+  grid-column-start: 1;
+  grid-column-end: 2; 
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.grid_sectors .grid_item:nth-child(2) {
+  grid-column-start: 2;
+  grid-column-end: 3; 
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.grid_sectors .grid_item:last-child {
+  grid-row: 2 / 3; 
+}
+
+.grid_sectors .grid_item p {
+  font-size: 20px;
+  text-align: justify;
+  line-height: 2;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* CONTACT */
+
+.end_content {
+  border-top: 1px solid #E43D12;
+}
+
+.contact_container {
+  margin: 12px 61px;
+  display: grid;
+}
+
+.parent_accordion {
+  text-align: right;
+}
+
+.title {
+  font-size: 32px;
+  text-align: left;
+}
+
+.grid_item .content {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.parent_accordion {
+  padding: 20px;
+  border-bottom: 1px solid #E43D12;
+}
+
+.grid_item .content .group {
+  padding-bottom: 16px;
+
+}
+
+.grid_item .content h1 {
+  text-align: left;
+  font-weight: bold;
+  font-size: 20px;
+  color:#252218;
+}
+
+.grid_item .content p {
+  padding-left: 20px;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.grid_item .content ul {
+  padding-left: 20px;
+  list-style-type: circle;
+}
+
+.grid_item .content ul li {
+  padding: 4px;
+}
+
+/* FOOTER */
+
+.footer {
+  border-top: 1px solid #E43D12;
+  border-bottom: 1px solid #E43D12;
+  padding: 16px;
+  text-align: center;
+  transition: background-color 0.1s ease, color 0.1s ease; 
+  color: #0f1115;
+}
+
+.footer:hover{
+  background-color: #E43D12;
+  color: #ECE9E1;
+}
+
+.footer .footer_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr
+}
+
+
+.footer .footer_container .footer_item {
+  font-size: 20px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+}
+
+.footer_item:first-child {
+  margin-left: auto;
+  padding-right: 100px;
+}
+.footer_item:last-child {
+  margin-right: auto;
+  padding-left: 100px;
+}
+.footer .footer_container .footer_item img{
+  height: 50px;
+  width: auto;
+}
+
+.transition {
+  border-top: 1px solid #E43D12;
+  border-bottom: 1px solid #E43D12;  
+  text-align: center;
+  padding: 28px;
+  font-size: 28px; 
+  font-weight: bold;
+  color: #0f1115;
+  transition: background-color 0.1s ease, color 0.1s ease; 
+}
+
+.transition:hover {
+  background-color: #E43D12;
+  color: #ECE9E1;
+}
+
+
