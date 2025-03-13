@@ -1,3 +1,77 @@
+@media (max-width: 768px) {
+  .navbar li:first-child {
+    display: flex;
+    width: 100%;
+    justify-content: center;  
+  }
+
+  .navbar li:not(:first-child) {
+    display: none;
+  }
+
+  .main_content, .end_content, .contact_container, .start {
+    margin: 12px !important;
+  }
+
+  .start {
+    gap: 8px !important;
+  }
+  
+  .start p {
+    font-size: 24px !important;
+    text-align: center !important;
+  }
+
+  .svgContainer {
+    margin-top: 40px;
+    transform: scale(0.8) !important;    
+    transform-origin: center;
+  }
+
+  
+  .start h1 {
+    font-size: 36px !important;
+    width: 100% !important;
+  }
+
+
+  .grid_sectors {
+    margin: 20px 20px !important;
+  }
+
+  .grid_sectors .grid_item h1 {
+    font-size: 20px !important;
+    text-align: left !important;
+    padding: 0 !important;
+  }
+
+  .grid_sectors .grid_item p {
+    font-size: 12px !important;
+  }
+
+  .grid_sectors .grid_item {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+}
+
+.navbar li:first-child {
+  margin-right: auto;
+}
+
+.navbar li {
+  font-size: 32px;
+  display: inline;
+}
+
+.navbar li:not(:first-child) {
+  margin-right: 32px; 
+  float: right;
+}
+
+.navbar li:not(:last-child) {
+  margin-right: 32px; 
+}
 
 .svgContainer {
   width: 300px; 
@@ -17,30 +91,9 @@
   clip-path: url(#clipPath); 
 }
 
-.navbar {
-  width: 100%;
-  background-color: transparent; 
-  position: sticky;
-}
-
-
-.navbar .rhs {
-  float: right;
-}
-
-.navbar li {
-  font-size: 32px;
-  display: inline;
-  text-align: right;
-}
-
-.navbar li:not(:last-child) {
-  margin-right: 32px; 
-}
-
 
 .start {
-  margin: 160px 0px 160px 0px;
+  margin: 160px 0px;
   display: grid;
   grid-auto-columns: 1fr;
   grid-auto-rows: auto auto auto;
@@ -122,9 +175,9 @@
 
 .grid_sectors {
   display: grid;
-  grid-template-columns: 0.15fr 0.1fr 1fr;
+  grid-template-columns: 0.25fr 0.1fr 1fr;
   grid-auto-rows: auto auto;
-  margin: 160px 0px 160px 0px;
+  margin: 160px 0px;
 }
 
 .grid_sectors .grid_item {
@@ -133,7 +186,7 @@
 
 .grid_sectors .grid_item h1 {
   font-size: 48px;
-  text-align: right;
+  text-align: left;
   padding-right: 20px;
   font-weight: bold;
   color:#E43D12;

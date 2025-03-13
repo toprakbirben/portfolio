@@ -39,17 +39,14 @@ function Transition() {
 
 }
 
-
 function NavBar() {
   return (
     <nav className={styles.navbar}>
       <ul>
-        <li><a href="#toprak"><strong>toprak</strong></a></li>
-        <div className={styles.rhs}>
+          <li><a href="#toprak"><strong>toprak</strong></a></li>
           <li><a href="#about">about me</a></li>
           <li><a href="#project">projects</a></li>
           <li><a href="#contact">contact me</a></li>
-        </div>
       </ul>
     </nav>
   );
