@@ -7,7 +7,7 @@ import 'react-resizable/css/styles.css';
 import GridLayout from "react-grid-layout";
 import { motion } from "motion/react"
 import { AnimatePresence } from "motion/react"
-import Image from "next/image"
+import img from "next/image"
 
 
 export default function Home() {
@@ -64,7 +64,7 @@ function Torpak() {
             </clipPath>
           </defs>          
         </svg>
-        <Image src="/torpak.png" alt="torpak" className={styles.image} />
+        <img src="/torpak.png" alt="torpak" className={styles.image}/>
         
       </div>
       <h1 className={styles.grid_item}><strong>2025</strong> graduate of Vrije Universiteit <strong>BSc Computer Science</strong></h1>
@@ -109,14 +109,14 @@ function Project() {
                 text_header = 'history/calendar automation' 
                 idea='What if there was a way to see how many hours I spent on a webpage and organise my schedule more efficiently; just like screen time report'
                 desc='This is a python script to increase productivity by integrating your history to your calendar via Google Calendar API.'
-                github='https://github.com/toprakbir/GoogleCalendar-Automation'/>
+                github='https://github.com/toprakbirben/GoogleCalendar-Automation'/>
             </div>
             <div key="b"className={styles.proj_item}> 
               <GridItem
                 text_header = 'this.website;'
                 idea= 'Instead of filling out templates, I decided to build my own website with my own design.'
                 desc='This website is built developed on Next.js and React, and designed in Figma.'
-                github='https://github.com/toprakbir/GoogleCalendar-Automation'/> 
+                github='https://github.com/toprakbirben/GoogleCalendar-Automation'/> 
             </div>
           </GridLayout>
         </div>
@@ -248,7 +248,7 @@ function Contact() {
 
 function Divider() {
   return (
-    <Image  src="/divider.svg" alt="divider" className={`${styles.grid_item} ${styles.divider}`} />
+    <img  src="/divider.svg" alt="divider" className={`${styles.grid_item} ${styles.divider}`} />
   );
 }
 
@@ -279,14 +279,14 @@ function PageFooter() {
 
         <div className={styles.footer_item} >
           <a href="https://linkedin.com/in/toprakbirben"> 
-          <Image src="/linkedin.webp" alt="linkedIn image"/>   
+          <img src="/linkedin.webp" alt="linkedIn image"/>   
             <p>toprakbirben</p>
           </a>
         </div>
         <div className={styles.footer_item}>
-          <a href="https://github.com/toprakbir"> 
-            <Image  src="/github.png" alt="github image"/>
-            <p>toprakbir</p>
+          <a href="https://github.com/toprakbirben"> 
+            <img  src="/github.png" alt="github image"/>
+            <p>toprakbirben</p>
           </a>
         </div>
       </div>

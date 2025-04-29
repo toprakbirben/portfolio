@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
     "@react-spring/web": "^9.7.5",
     "@studio-freight/lenis": "^1.0.42",
     "@use-gesture/react": "^10.3.1",

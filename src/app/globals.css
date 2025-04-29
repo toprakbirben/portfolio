@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --background: #ECE9E1; /* #2C3E50 */
   --foreground: #252218;
@@ -24,10 +25,9 @@
 html, body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Proxima Nova, Roboto;
+  font-family: Roboto, Proxima Nova ;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('/turbulance.svg');
   margin: 0;
   padding: 0;
 
