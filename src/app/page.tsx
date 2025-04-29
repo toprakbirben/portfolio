@@ -7,7 +7,7 @@ import 'react-resizable/css/styles.css';
 import GridLayout from "react-grid-layout";
 import { motion } from "motion/react"
 import { AnimatePresence } from "motion/react"
-import img from "next/image"
+import Image from "next/image"
 
 
 export default function Home() {
@@ -64,7 +64,7 @@ function Torpak() {
             </clipPath>
           </defs>          
         </svg>
-        <img src="/torpak.png" alt="torpak" className={styles.image}/>
+        <Image src="/torpak.png" alt="torpak" className={styles.image}/>
         
       </div>
       <h1 className={styles.grid_item}><strong>2025</strong> graduate of Vrije Universiteit <strong>BSc Computer Science</strong></h1>
@@ -248,7 +248,7 @@ function Contact() {
 
 function Divider() {
   return (
-    <img  src="/divider.svg" alt="divider" className={`${styles.grid_item} ${styles.divider}`} />
+    <Image  src="/divider.svg" alt="divider" className={`${styles.grid_item} ${styles.divider}`} />
   );
 }
 
@@ -279,13 +279,13 @@ function PageFooter() {
 
         <div className={styles.footer_item} >
           <a href="https://linkedin.com/in/toprakbirben"> 
-          <img src="/linkedin.webp" alt="linkedIn image"/>   
+          <Image src="/linkedin.webp" alt="linkedIn image"/>   
             <p>toprakbirben</p>
           </a>
         </div>
         <div className={styles.footer_item}>
           <a href="https://github.com/toprakbirben"> 
-            <img  src="/github.png" alt="github image"/>
+            <Image  src="/github.png" alt="github image"/>
             <p>toprakbirben</p>
           </a>
         </div>
