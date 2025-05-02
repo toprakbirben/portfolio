@@ -92,6 +92,10 @@ function About() {
 }
 
 function Project() {
+  const layout = [
+    { i: "a", x: 0, y: 0, w: 5, h: 12, static: true },
+    { i: "b", x: 5, y: 0, w: 4, h: 11, static: true},
+  ];
   return (
     <div className={styles.project_sector}>
       <div id="project" className={styles.grid_sectors}>
@@ -100,23 +104,28 @@ function Project() {
         <div className={styles.grid_item}>
           <GridLayout
             className="layout"
+            layout={layout}    
             cols={12}
             rowHeight={30}
             width={1200}
           >
-            <div key="a" className={styles.proj_item}> 
-              <GridItem 
-                text_header = 'history/calendar automation' 
-                idea='What if there was a way to see how many hours I spent on a webpage and organise my schedule more efficiently; just like screen time report'
-                desc='This is a python script to increase productivity by integrating your history to your calendar via Google Calendar API.'
-                github='https://github.com/toprakbirben/GoogleCalendar-Automation'/>
-            </div>
+              <div key="a" className={styles.proj_item}> 
+                <a href="https://github.com/toprakbirben/GoogleCalendar-Automation">
+                  <GridItem 
+                    text_header = 'history/calendar automation' 
+                    idea='What if there was a way to see how many hours I spent on a webpage and organise my schedule more efficiently; just like screen time report'
+                    desc='This is a python script to increase productivity by integrating your history to your calendar via Google Calendar API.'
+                    github='https://github.com/toprakbirben/GoogleCalendar-Automation'/>
+                </a>
+              </div>
             <div key="b"className={styles.proj_item}> 
-              <GridItem
-                text_header = 'this.website;'
-                idea= 'Instead of filling out templates, I decided to build my own website with my own design.'
-                desc='This website is built developed on Next.js and React, and designed in Figma.'
-                github='https://github.com/toprakbirben/GoogleCalendar-Automation'/> 
+              <a href="https://github.com/toprakbirben/GoogleCalendar-Automation">
+                <GridItem
+                  text_header = 'this.website;'
+                  idea= 'Instead of filling out templates, I decided to build my own website with my own design.'
+                  desc='This website is built developed on Next.js and React, and designed in Figma.'
+                  github='https://github.com/toprakbirben/GoogleCalendar-Automation'/> 
+              </a>
             </div>
           </GridLayout>
         </div>
@@ -259,8 +268,7 @@ function GridItem({text_header, idea, desc, github}: {text_header: string, idea:
       <p><br/>{idea}</p>
       <p><br/>{desc}</p>
       <footer> <a href={github}> <br/> <i>for more information</i> </a> </footer>
-    </div>
-      
+    </div> 
   );
 }
 
