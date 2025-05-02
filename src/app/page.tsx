@@ -119,12 +119,12 @@ function Project() {
                 </a>
               </div>
             <div key="b"className={styles.proj_item}> 
-              <a href="https://github.com/toprakbirben/GoogleCalendar-Automation">
+              <a href="https://github.com/toprakbirben/portfolio">
                 <GridItem
                   text_header = 'this.website;'
                   idea= 'Instead of filling out templates, I decided to build my own website with my own design.'
                   desc='This website is built developed on Next.js and React, and designed in Figma.'
-                  github='https://github.com/toprakbirben/GoogleCalendar-Automation'/> 
+                  github='https://github.com/toprakbirben/portfolio'/> 
               </a>
             </div>
           </GridLayout>
