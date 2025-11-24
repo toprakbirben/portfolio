@@ -181,7 +181,16 @@ function Contact() {
                         <span className={styles.edu_year}>
                           <i>2025</i>
                         </span>
-                      </h1>                  
+                      </h1>
+                      <h1 className={styles.edu_line}>
+                        <span>
+                          <strong>Hisar School</strong>
+                        </span>
+
+                        <span className={styles.edu_year}>
+                          <i>2018-2022</i>
+                        </span>
+                      </h1>                   
                     </div>
                   </motion.div>
                 )}
