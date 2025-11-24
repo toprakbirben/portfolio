@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/icons": "5.x",
     "@material-ui/core": "^4.12.4",
     "@react-spring/web": "^9.7.5",
     "@studio-freight/lenis": "^1.0.42",
     "@use-gesture/react": "^10.3.1",
+    "antd": "^6.0.0",
     "framer-motion": "^12.4.10",
     "gridstack": "^11.3.0",
     "locomotive-scroll": "^5.0.0-beta.21",

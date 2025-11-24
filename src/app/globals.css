@@ -22,6 +22,8 @@
 
 
 
+
+
 html, body {
   color: var(--foreground);
   background: var(--background);
@@ -31,6 +33,15 @@ html, body {
   margin: 0;
   padding: 0;
 
+}
+
+/* Override all Ant Design Layout backgrounds */
+.ant-layout,
+.ant-layout-header,
+.ant-layout-content,
+.ant-layout-footer,
+.ant-layout-sider {
+  background: var(--background) !important;
 }
 
 a {

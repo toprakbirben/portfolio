@@ -28,12 +28,10 @@
     transform-origin: center;
   }
 
-  
   .start h1 {
     font-size: 36px !important;
     width: 100% !important;
   }
-
 
   .grid_sectors {
     margin: 20px 20px !important;
@@ -55,6 +53,37 @@
   }
 }
 
+.edu_line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;            
+}
+
+.edu_line > span:first-child {
+  flex: 1;             
+}
+
+.edu_year {
+  font-style: italic;
+  margin-left: 16px;
+}
+
+.edu_item {
+  margin-bottom: 24px; 
+}
+
+.edu_list {
+  list-style-position: outside;
+  margin: 8px auto 0;
+  max-width: 720px;
+  text-align: left;
+  padding-left: 0;
+}
+
+.edu_list li {
+  margin-bottom: 6px;  
+}
 .navbar li:first-child {
   margin-right: auto;
 }
@@ -229,13 +258,20 @@
   display: grid;
 }
 
-.parent_accordion {
-  text-align: right;
-}
-
 .title {
   font-size: 32px;
   text-align: left;
+}
+
+.edu-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edu-year {
+  margin-left: auto;     
+  font-style: italic;
 }
 
 .grid_item .content {
@@ -244,10 +280,22 @@
 }
 
 .parent_accordion {
+  text-align: right;
   padding: 20px;
   border-bottom: 1px solid #E43D12;
 }
+.parent_accordion .content .edu_list {
+  padding-left: 16px; 
+  margin: 8px 0 0;    
+  max-width: 720px;
+  text-align: left;
+  list-style-position: outside;
+}
 
+.parent_accordion .content h1,
+.parent_accordion .content p {
+  text-align: left !important;
+}
 .grid_item .content .group {
   padding-bottom: 16px;
 
@@ -281,42 +329,21 @@
   border-top: 1px solid #E43D12;
   border-bottom: 1px solid #E43D12;
   padding: 16px;
+  width: 100%;
   text-align: center;
   transition: background-color 0.1s ease, color 0.1s ease; 
-  color: #0f1115;
-}
-
-.footer:hover{
   background-color: #E43D12;
   color: #ECE9E1;
 }
 
-.footer .footer_container {
-  display: grid;
-  grid-template-columns: 1fr 1fr
-}
-
-
-.footer .footer_container .footer_item {
-  font-size: 20px;
-  display: flex;
-  gap: 40px;
-  align-items: center;
-  text-align: center;
+.footer h1 {
+  font-size: 28px;
   font-weight: bold;
 }
 
-.footer_item:first-child {
-  margin-left: auto;
-  padding-right: 100px;
-}
-.footer_item:last-child {
-  margin-right: auto;
-  padding-left: 100px;
-}
-.footer .footer_container .footer_item img{
-  height: 50px;
-  width: auto;
+.footer p {
+  font-size: 16px;
+  margin: 4px 0;
 }
 
 .transition {
