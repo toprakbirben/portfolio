@@ -25,12 +25,14 @@ export default function Home() {
       <Layout>
         <Layout.Header >{NavBar()}</Layout.Header>
         <Layout>
-          <Layout.Content >{Torpak()}</Layout.Content>
-          <Layout.Content >{About()}</Layout.Content>
-          <Layout.Content >{Transition()}</Layout.Content>
-          <Layout.Content >{Project()}</Layout.Content>          
-          <Layout.Content >{Contact()}</Layout.Content>
-          <Layout.Content >{PageFooter()}</Layout.Content>
+          <Layout.Content >
+            {Torpak()}
+            {About()}
+            {Transition()}
+            {Project()}
+            {Contact()}
+            {PageFooter()}
+          </Layout.Content>
         </Layout>
       </Layout>
     </div>
@@ -83,11 +85,11 @@ function Torpak() {
 function About() {
 
   return(
-    <div id = "about" style={{paddingLeft: '122px', paddingRight: '122px', paddingBottom: '50px'}}> 
+    <div id = "about" className={styles.layout}> 
       <Layout>
-        <Layout> 
-          <Layout.Sider style={{ fontSize: '36px', fontWeight: 'bold', color:'#E43D12'}}> <SectionTitle text_info='About'/> </Layout.Sider>
-          <Layout.Content> 
+        <Layout className={styles.section_layout}> 
+          <Layout.Sider style={{ fontSize: '36px', fontWeight: 'bold', color:'#E43D12', width: '100%', height: 'auto', textAlign: 'center'}} className={styles.layout_sider}> <SectionTitle text_info='About'/> </Layout.Sider>
+          <Layout.Content style={{ width: '100%', height: 'auto'}}> 
             <p style = {{ fontSize: '20px', textAlign: 'justify', lineHeight: '1.6'}}> 
               I was born and raised in Istanbul, and I am now located in Amsterdam. My academic journey builds on a foundation of curiosity and drive, 
               reflected in my diverse projects and experiences such as development of an application or making a portfolio website from scratch or even 
@@ -110,21 +112,20 @@ function Project() {
   const calendarAutomationText = "A Python based tool that automates the creation of Google Calendar events by analyzing your Chrome browsing history. Using SQL queries on the Chrome history database, it extracts key information such as how long you spent on a tab and when you last visited it—and then automatically generates corresponding events in your Google Calendar via the Calendar API. This project showcases my skills in data processing, API integration, and automation.";
 
   return(
-    <Layout style={{paddingLeft: '122px', paddingRight: '122px', paddingTop: '50px', paddingBottom: '100px'}} id="project">
-      <Layout> 
-        <Layout.Sider style={{ fontSize: '36px', fontWeight: 'bold', color:'#E43D12'}}> <SectionTitle text_info='Projects'/> </Layout.Sider>
-        <Layout.Content> 
-          <Row gutter={[16, 16]}>
-            <Col span={12}> <Card title="Personal Portfolio Website" style={{ backgroundColor: '#E7E4DA', borderColor: '#E43D12', borderWidth: 1.5, borderRadius: 12 }} extra={<a href="https://github.com/toprakbirben/portfolio">More</a>}>{portfolioText}</Card> </Col> 
-            <Col span={12}> <Card title="more-than-tasks" style={{ backgroundColor: '#E7E4DA', borderColor: '#E43D12', borderWidth: 1.5, borderRadius: 12 }} extra={<a href="https://github.com/toprakbirben/morethantasks">More</a>}>{moreThanTasksText} </Card> </Col> 
-
-            <Col span={12}> <Card title="Calendar Automation" style={{ backgroundColor: '#E7E4DA', borderColor: '#E43D12', borderWidth: 1.5, borderRadius: 12 }} extra={<a href="https://github.com/toprakbirben/GoogleCalendar-Automation">More</a>}>{calendarAutomationText}</Card> </Col> 
-          </Row>
-        </Layout.Content>
+    <div className={styles.layout}> 
+      <Layout id="project">
+        <Layout className={styles.section_layout}> 
+          <Layout.Sider style={{ fontSize: '36px', fontWeight: 'bold', color:'#E43D12'}}> <SectionTitle text_info='Projects'/> </Layout.Sider>
+          <Layout.Content className={styles.project_layout}> 
+            <Row gutter={[16, 16]}>
+              <Col xs={24} sm={24} md={12}> <Card title="Personal Portfolio Website" style={{ backgroundColor: '#E7E4DA', borderColor: '#E43D12', borderWidth: 1.5, borderRadius: 12 }} extra={<a href="https://github.com/toprakbirben/portfolio">More</a>}>{portfolioText}</Card> </Col> 
+              <Col xs={24} sm={24} md={12}> <Card title="more-than-tasks" style={{ backgroundColor: '#E7E4DA', borderColor: '#E43D12', borderWidth: 1.5, borderRadius: 12 }} extra={<a href="https://github.com/toprakbirben/morethantasks">More</a>}>{moreThanTasksText} </Card> </Col> 
+              <Col xs={24} sm={24} md={12}> <Card title="Calendar Automation" style={{ backgroundColor: '#E7E4DA', borderColor: '#E43D12', borderWidth: 1.5, borderRadius: 12 }} extra={<a href="https://github.com/toprakbirben/GoogleCalendar-Automation">More</a>}>{calendarAutomationText}</Card> </Col> 
+            </Row>
+          </Layout.Content>
+        </Layout>
       </Layout>
-    </Layout>
-
-    
+    </div>
   );
 }
 
@@ -140,15 +141,15 @@ function Contact() {
   };
 
   return(
-    <div id = "resume" style={{paddingLeft: '122px', paddingRight: '122px', paddingBottom: '100px'}}> 
+    <div id = "resume" className={styles.layout}> 
       <Layout>
-        <Layout> 
+        <Layout className={styles.section_layout}> 
           <Layout.Sider style={{ fontSize: '36px', fontWeight: 'bold', color:'#E43D12'}}>
             <a onClick={() => openInNewTab("/SarpToprakBirben_Resume.pdf")}> 
               <SectionTitle text_info='Resume'/>
             </a> 
           </Layout.Sider>
-          <Layout.Content> 
+          <Layout.Content style= {{ width: '100%', height: 'auto'}}> 
             <motion.div className={styles.parent_accordion}>
               <AnimatePresence>
                 <motion.div
@@ -273,7 +274,7 @@ function Contact() {
 
 function SectionTitle({text_info}: {text_info: string}) {
   return (
-    <div className={styles.grid_item}> 
+    <div> 
       <h1>{text_info}</h1> 
     </div> 
   );

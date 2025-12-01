@@ -7,8 +7,6 @@
   --background: #ECE9E1; /* #2C3E50 */
   --foreground: #252218;
   --cursor-color: #333;
-  /* background-image: url('/turbulance.svg'); */
-
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,11 +16,6 @@
     --cursor-color: #333; /*BDC3C7*/
   }
 }
-
-
-
-
-
 
 html, body {
   color: var(--foreground);
@@ -42,6 +35,14 @@ html, body {
 .ant-layout-footer,
 .ant-layout-sider {
   background: var(--background) !important;
+}
+
+
+@media (max-width: 768px) {
+  .ant-layout-sider-children {
+    padding-bottom: 8px !important; 
+    padding-top: 8px !important;
+  }
 }
 
 a {

@@ -14,6 +14,7 @@
   }
 
   .start {
+    margin: 60px 0;
     gap: 8px !important;
   }
   
@@ -24,7 +25,7 @@
 
   .svgContainer {
     margin-top: 40px;
-    transform: scale(0.8) !important;    
+    transform: scale(1) !important;    
     transform-origin: center;
   }
 
@@ -33,24 +34,56 @@
     width: 100% !important;
   }
 
-  .grid_sectors {
-    margin: 20px 20px !important;
-  }
-
-  .grid_sectors .grid_item h1 {
+  .grid_item h1 {
     font-size: 20px !important;
     text-align: left !important;
     padding: 0 !important;
   }
 
-  .grid_sectors .grid_item p {
+  .grid_item p {
     font-size: 12px !important;
   }
 
-  .grid_sectors .grid_item {
+  .grid_item {
     grid-column: auto !important;
     grid-row: auto !important;
   }
+
+  .edu_list {
+    padding-left: 12px;
+    margin: 8px 0 0;
+    max-width: none;
+  }
+
+  .transition h1 {
+    font-size: 16px;
+    padding: 12px;
+    line-height: 1.4;
+  }
+
+  .layout {
+    padding: 40px !important;
+  }
+  
+  .section_layout {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .project_layout {
+    width: 100% !important;
+  }
+}
+
+.section_layout {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+.layout {
+  padding: 122px 122px 50px 122px;
+
 }
 
 .edu_line {
