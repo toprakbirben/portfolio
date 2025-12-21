@@ -5,8 +5,8 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
-  title: "toprakbirben",
-  description: "Portfolio for Toprak Birben",
+  title: "I am Toprak",
+  description: "I am Toprak",
 };
 
 export default function RootLayout({

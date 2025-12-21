@@ -150,6 +150,45 @@ function Contact() {
             </a> 
           </Layout.Sider>
           <Layout.Content style= {{ width: '100%', height: 'auto'}}> 
+          <motion.div className={styles.parent_accordion}>
+              <AnimatePresence>
+                <motion.div
+                  key="work-experience"
+                  onClick={() => toggleAccordion('work-experience')}
+                >
+                  <motion.div className={styles.title}>
+                    Work Experience
+                  </motion.div>
+                </motion.div>
+                {openAccordion === 'work-experience' && (
+                  <motion.div
+                    key="work-experience-content"
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: 1,
+                      transition: {
+                        duration: 0.3,
+                      },
+                    }}
+                    exit={{ opacity: 0 }}
+                    className={styles.content}
+                  >
+                    <div className={styles.group}> 
+                      <h1 className={styles.edu_line}>
+                        <span>
+                          <strong>Trein Vertraging</strong> - Software Developer Intern
+                        </span>
+
+                        <span className={styles.edu_year}>
+                          <i>2025 December - Present</i>
+                        </span>
+                      </h1>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+
             <motion.div className={styles.parent_accordion}>
               <AnimatePresence>
                 <motion.div
