@@ -446,6 +446,13 @@ git commit -m "feat: Reveal and AnimatedHeading motion primitives"
 **Files:**
 - Create: `src/components/Nav.tsx`
 
+**Design note (frontend-design refinement):** Nav reads as a system/route bar.
+Links are monospace, lowercase, prefixed with a `~/` marker styled like a path
+identifier (not generic `01/02/03` numbering). Name mark `stb` carries a single
+amber dot as a restrained signal accent. Section links collapse on small
+screens; the résumé link always stays visible. Amber is used sparingly (signal
+only) — the résumé button is an ink outline, not amber.
+
 **Interfaces:**
 - Consumes: `motion` (Framer).
 - Produces: `Nav` default export: `() => JSX.Element`. Renders fixed top nav with a name mark linking to `#top` and anchor links to `#experience`, `#projects`, `#skills`, plus a résumé link to `/SarpToprakBirben_Resume.pdf`.
@@ -458,42 +465,43 @@ git commit -m "feat: Reveal and AnimatedHeading motion primitives"
 import { motion } from "motion/react";
 
 const links = [
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
+  { label: "experience", href: "#experience" },
+  { label: "projects", href: "#projects" },
+  { label: "skills", href: "#skills" },
 ];
 
 export default function Nav() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-paper/80 backdrop-blur-sm">
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
-        <a href="#top" className="font-mono text-sm tracking-tight">
-          STB
+      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5 font-mono text-sm">
+        <a href="#top" className="font-medium tracking-tight">
+          stb<span className="text-amber">.</span>
         </a>
-        <ul className="flex items-center gap-6 text-sm">
-          {links.map((link) => (
-            <li key={link.href}>
-              <motion.a
-                href={link.href}
-                className="text-muted hover:text-ink"
-                whileHover={{ y: -1 }}
-                transition={{ duration: 0.2 }}
-              >
-                {link.label}
-              </motion.a>
-            </li>
-          ))}
-          <li>
-            <a
-              href="/SarpToprakBirben_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border border-ink px-4 py-1.5 text-sm hover:bg-ink hover:text-paper transition-colors"
-            >
-              Résumé
-            </a>
-          </li>
-        </ul>
+        <div className="flex items-center gap-6">
+          <ul className="hidden items-center gap-6 sm:flex">
+            {links.map((link) => (
+              <li key={link.href}>
+                <motion.a
+                  href={link.href}
+                  className="text-muted hover:text-ink"
+                  whileHover={{ y: -1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <span className="text-muted/60">~/</span>
+                  {link.label}
+                </motion.a>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="/SarpToprakBirben_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-ink px-4 py-1.5 hover:bg-ink hover:text-paper transition-colors"
+          >
+            résumé
+          </a>
+        </div>
       </nav>
     </header>
   );
@@ -519,9 +527,18 @@ git commit -m "feat: minimal top nav"
 **Files:**
 - Create: `src/components/Hero.tsx`
 
+**Design note (frontend-design refinement):** The hero's signature element is a
+monospace **system status readout** — the one memorable thing on the page. It
+renders Toprak's real impact as a live observability/status panel: a "currently"
+status row with a pulsing amber "live" dot, then metric rows drawn from the
+resume. Amber appears ONLY as the live dot and the résumé CTA (signal, not
+decoration). The eyebrow reads `Amsterdam, NL · backend systems`. The pulsing
+dot animates opacity only (safe under reduced motion). All readout content is
+real SSR text.
+
 **Interfaces:**
 - Consumes: `AnimatedHeading` (Task 4), `Reveal` (Task 4), `motion`, `src/lib/gsap`.
-- Produces: `Hero` default export: `() => JSX.Element`. Full-viewport hero with `id="top"`, animated heading, positioning line, location, links, résumé button; gentle parallax/fade-out on scroll via ScrollTrigger.
+- Produces: `Hero` default export: `() => JSX.Element`. Full-viewport hero with `id="top"`, animated heading, positioning line, location eyebrow, status-readout panel, links, résumé button; gentle parallax/fade-out on scroll via ScrollTrigger.
 
 - [ ] **Step 1: Create `src/components/Hero.tsx`**
 
@@ -529,9 +546,16 @@ git commit -m "feat: minimal top nav"
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { motion } from "motion/react";
+import { gsap } from "@/lib/gsap";
 import AnimatedHeading from "@/components/AnimatedHeading";
 import Reveal from "@/components/Reveal";
+
+const metrics = [
+  { label: "automated support resolution", value: "31% → 65%" },
+  { label: "recommendation engine", value: "~€500k projected savings" },
+  { label: "EU rail carrier identifiers", value: "normalized → unified" },
+];
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -548,7 +572,7 @@ export default function Hero() {
 
     const ctx = gsap.context(() => {
       gsap.to(inner, {
-        yPercent: 18,
+        yPercent: 14,
         opacity: 0,
         ease: "none",
         scrollTrigger: {
@@ -567,23 +591,52 @@ export default function Hero() {
     <section
       id="top"
       ref={sectionRef}
-      className="flex min-h-screen items-center px-6"
+      className="flex min-h-screen items-center px-6 pt-24"
     >
       <div ref={innerRef} className="mx-auto w-full max-w-5xl">
         <p className="mb-6 font-mono text-sm text-muted">
-          Amsterdam, Netherlands
+          Amsterdam, NL · backend systems
         </p>
         <AnimatedHeading
           text="Sarp Toprak Birben"
-          className="text-[clamp(2.5rem,8vw,6rem)] font-semibold leading-[0.95] tracking-tight"
+          className="font-sans text-[clamp(2.5rem,8vw,6rem)] font-medium leading-[0.95] tracking-tight"
         />
         <Reveal delay={0.3} className="mt-8 max-w-2xl">
-          <p className="text-[clamp(1.1rem,2.5vw,1.6rem)] text-ink/80">
+          <p className="text-[clamp(1.1rem,2.5vw,1.6rem)] leading-snug text-ink/80">
             Backend-focused software engineer — building scalable systems end to
             end, from design to production.
           </p>
         </Reveal>
-        <Reveal delay={0.45} className="mt-10">
+
+        {/* Signature: system status readout of real impact */}
+        <Reveal delay={0.45} className="mt-10 max-w-2xl">
+          <div className="rounded-lg border border-ink/15 font-mono text-sm">
+            <div className="flex items-center gap-2 border-b border-ink/10 px-4 py-2.5 text-muted">
+              <motion.span
+                aria-hidden="true"
+                className="inline-block h-2 w-2 rounded-full bg-amber"
+                animate={{ opacity: [1, 0.25, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              />
+              currently · Software Engineer Intern @ Trein-vertraging
+            </div>
+            <ul>
+              {metrics.map((m, i) => (
+                <li
+                  key={m.label}
+                  className={`flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 px-4 py-2.5 ${
+                    i < metrics.length - 1 ? "border-b border-ink/10" : ""
+                  }`}
+                >
+                  <span className="text-muted">{m.label}</span>
+                  <span className="text-ink">{m.value}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.6} className="mt-10">
           <div className="flex flex-wrap items-center gap-5 font-mono text-sm">
             <a
               href="https://github.com/toprakbirben"
@@ -626,7 +679,7 @@ export default function Hero() {
 - [ ] **Step 2: Typecheck**
 
 Run: `npx tsc --noEmit`
-Expected: no errors in `Hero.tsx` (note `ScrollTrigger` import is used implicitly via plugin registration; if lint flags it as unused, change the import in `Hero.tsx` to only `import { gsap } from "@/lib/gsap";`).
+Expected: no errors in `Hero.tsx`.
 
 - [ ] **Step 3: Commit**
 
