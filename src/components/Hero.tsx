@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { gsap } from "@/lib/gsap";
 import AnimatedHeading from "@/components/AnimatedHeading";
 import Reveal from "@/components/Reveal";
+import { prefersReducedMotion } from "@/lib/prefersReducedMotion";
 
 const metrics = [
   { label: "automated support resolution", value: "31% → 65%" },
@@ -15,15 +16,13 @@ const metrics = [
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     const section = sectionRef.current;
     const inner = innerRef.current;
     if (!section || !inner) return;
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    if (prefersReduced) return;
+    if (prefersReducedMotion()) return;
 
     const ctx = gsap.context(() => {
       gsap.to(inner, {
@@ -67,12 +66,19 @@ export default function Hero() {
         <Reveal delay={0.45} className="mt-10 max-w-2xl">
           <div className="rounded-lg border border-ink/15 font-mono text-sm">
             <div className="flex items-center gap-2 border-b border-ink/10 px-4 py-2.5 text-muted">
-              <motion.span
-                aria-hidden="true"
-                className="inline-block h-2 w-2 rounded-full bg-amber"
-                animate={{ opacity: [1, 0.25, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              />
+              {reduce ? (
+                <span
+                  aria-hidden="true"
+                  className="inline-block h-2 w-2 rounded-full bg-amber"
+                />
+              ) : (
+                <motion.span
+                  aria-hidden="true"
+                  className="inline-block h-2 w-2 rounded-full bg-amber"
+                  animate={{ opacity: [1, 0.25, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                />
+              )}
               currently · Software Engineer Intern @ Trein-vertraging
             </div>
             <ul>

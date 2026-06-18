@@ -11,7 +11,7 @@ export default {
         ink: "#161412",
         paper: "#FAF8F5",
         amber: "#E8830C",
-        muted: "#8A8378",
+        muted: "#6E675C",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
+import { prefersReducedMotion } from "@/lib/prefersReducedMotion";
 
 export default function AnimatedHeading({
   text,
@@ -18,10 +19,7 @@ export default function AnimatedHeading({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    if (prefersReduced) return;
+    if (prefersReducedMotion()) return;
 
     const ctx = gsap.context(() => {
       gsap.from(el.querySelectorAll("[data-word]"), {
