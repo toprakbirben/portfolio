@@ -1,16 +1,19 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { gsap } from "@/lib/gsap";
 import AnimatedHeading from "@/components/AnimatedHeading";
 import Reveal from "@/components/Reveal";
 import { prefersReducedMotion } from "@/lib/prefersReducedMotion";
 
-const metrics = [
-  { label: "automated support resolution", value: "31% → 65%" },
-  { label: "recommendation engine", value: "~€500k projected savings" },
-  { label: "EU rail carrier identifiers", value: "normalized → unified" },
+const keywords = [
+  "Laravel",
+  "Distributed Systems",
+  "FastAPI",
+  "Event-driven",
+  "PostgreSQL",
 ];
 
 export default function Hero() {
@@ -47,7 +50,25 @@ export default function Hero() {
       ref={sectionRef}
       className="flex min-h-screen items-center px-6 pt-24"
     >
-      <div ref={innerRef} className="mx-auto w-full max-w-5xl">
+      <div
+        ref={innerRef}
+        className="mx-auto grid w-full max-w-5xl items-center gap-10 lg:grid-cols-[minmax(0,1fr)_auto]"
+      >
+        <Reveal
+          delay={0.2}
+          className="order-first justify-self-center lg:order-last lg:justify-self-end"
+        >
+          <Image
+            src="/torpak.png"
+            alt="Sarp Toprak Birben"
+            width={907}
+            height={1384}
+            priority
+            className="w-40 rounded-2xl border border-ink/15 object-cover sm:w-52 lg:w-64"
+          />
+        </Reveal>
+
+        <div>
         <p className="mb-6 font-mono text-sm text-muted">
           Amsterdam, NL · backend systems
         </p>
@@ -69,31 +90,32 @@ export default function Hero() {
               {reduce ? (
                 <span
                   aria-hidden="true"
-                  className="inline-block h-2 w-2 rounded-full bg-amber"
+                  className="inline-block h-2 w-2 rounded-full bg-emerald-500"
                 />
               ) : (
                 <motion.span
                   aria-hidden="true"
-                  className="inline-block h-2 w-2 rounded-full bg-amber"
+                  className="inline-block h-2 w-2 rounded-full bg-emerald-500"
                   animate={{ opacity: [1, 0.25, 1] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 />
               )}
-              currently · Software Engineer Intern @ Trein-vertraging
+              open to work · backend &amp; systems roles
             </div>
-            <ul>
-              {metrics.map((m, i) => (
-                <li
-                  key={m.label}
-                  className={`flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 px-4 py-2.5 ${
-                    i < metrics.length - 1 ? "border-b border-ink/10" : ""
-                  }`}
+            <p className="border-b border-ink/10 px-4 py-3 leading-snug text-ink">
+              Built a recommendation engine projected to save users{" "}
+              <span className="text-amber">€2.1M/year</span>.
+            </p>
+            <div className="flex flex-wrap gap-2 px-4 py-3">
+              {keywords.map((kw) => (
+                <span
+                  key={kw}
+                  className="rounded-full border border-ink/15 px-3 py-1 text-xs text-ink/80"
                 >
-                  <span className="text-muted">{m.label}</span>
-                  <span className="text-ink">{m.value}</span>
-                </li>
+                  {kw}
+                </span>
               ))}
-            </ul>
+            </div>
           </div>
         </Reveal>
 
@@ -116,7 +138,7 @@ export default function Hero() {
               LinkedIn
             </a>
             <a
-              href="mailto:birbentoprak@gmail.com"
+              href="#contact"
               className="border-b border-transparent hover:border-ink"
             >
               Email
@@ -131,6 +153,7 @@ export default function Hero() {
             </a>
           </div>
         </Reveal>
+        </div>
       </div>
     </section>
   );
