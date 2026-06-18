@@ -2,47 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
-  --background: #ECE9E1; /* #2C3E50 */
-  --foreground: #252218;
-  --cursor-color: #333;
+  --paper: #FAF8F5;
+  --ink: #161412;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ECE9E1;
-    --foreground: #252218;
-    --cursor-color: #333; /*BDC3C7*/
-  }
+html {
+  scroll-behavior: smooth;
 }
 
-html, body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Roboto, Proxima Nova ;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html,
+body {
   margin: 0;
   padding: 0;
-
-}
-
-/* Override all Ant Design Layout backgrounds */
-.ant-layout,
-.ant-layout-header,
-.ant-layout-content,
-.ant-layout-footer,
-.ant-layout-sider {
-  background: var(--background) !important;
-}
-
-
-@media (max-width: 768px) {
-  .ant-layout-sider-children {
-    padding-bottom: 8px !important; 
-    padding-top: 8px !important;
-  }
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -50,6 +27,24 @@ a {
   text-decoration: none;
 }
 
-h1, p {
-  margin: 0 0 1em
+/* Lenis: disable native smooth scroll while Lenis drives it */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
