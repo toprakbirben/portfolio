@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { MotionConfig } from "motion/react";
 import React from "react";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
-const geistSans = Geist({ subsets: ["latin"], variable: "--font-sans" });
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
+const displaySans = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
+const utilityMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
 
 export const metadata: Metadata = {
   title: "Sarp Toprak Birben — Software Engineer",
@@ -17,12 +24,17 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html
+      lang="en"
+      className={`${displaySans.variable} ${utilityMono.variable}`}
+    >
       <head>
         <link rel="icon" href="/favicon.svg" sizes="any" />
       </head>
       <body>
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        <MotionConfig reducedMotion="user">
+          <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        </MotionConfig>
       </body>
     </html>
   );
