@@ -2,8 +2,8 @@ import Reveal from "@/components/Reveal";
 
 const projects = [
   {
-    name: "fuutball",
-    href: "https://stereofy.live/",
+    name: "fuuutball",
+    href: "https://fuuutball.com/",
     tagline: "Online Multiplayer Football Manager",
     stack: ["Python", "FastAPI", "React"],
     bullets: [
